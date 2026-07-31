@@ -42,6 +42,14 @@ async def get_balance(username: str):
     return {"message": "User not found"}
 
 
+@app.get("/users")
+async def get_all_users():
+    if users == []:
+        return {"message": "No available users"}
+
+    return {"users": users}
+
+
 @app.delete("/users/{username}")
 async def delete_user(username: str):
     for user in users:
